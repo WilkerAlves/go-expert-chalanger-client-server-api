@@ -120,3 +120,6 @@ fabric.properties
 .idea/*
 .vscode
 .vscode/
+
+database.db
+cotacoes.txt
