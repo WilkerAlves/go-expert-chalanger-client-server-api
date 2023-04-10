@@ -69,7 +69,7 @@ func HandlerQuotation(res http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	ctx, cancel = context.WithTimeout(req.Context(), 10*time.Nanosecond)
+	ctx, cancel = context.WithTimeout(req.Context(), 10*time.Millisecond)
 	defer cancel()
 	err = InsertQuotation(ctx, quotation.Bid)
 	if err != nil {
