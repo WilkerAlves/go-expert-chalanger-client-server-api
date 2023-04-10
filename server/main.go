@@ -69,9 +69,9 @@ func HandlerQuotation(res http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	ctx, cancel = context.WithTimeout(req.Context(), 10*time.Millisecond)
+	ctx, cancel = context.WithTimeout(req.Context(), 10*time.Nanosecond)
 	defer cancel()
-	err = InsertQuotation(req.Context(), quotation.Bid)
+	err = InsertQuotation(ctx, quotation.Bid)
 	if err != nil {
 		if errors.Is(err, context.DeadlineExceeded) {
 			res.WriteHeader(http.StatusRequestTimeout)
